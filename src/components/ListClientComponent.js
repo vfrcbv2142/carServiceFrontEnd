@@ -25,7 +25,7 @@ const ListClientComponent = () => {
             }
         }).catch((error) => {
             console.log(error);
-            AuthService.refreshTokenIfExpired(error, navigate);
+            AuthService.ifRefreshTokenExpired(error, navigate);
         })
     }
 
@@ -34,7 +34,7 @@ const ListClientComponent = () => {
             getAllClients(ownerId);
         }).catch((error) => {
             console.log(error);
-            AuthService.refreshTokenIfExpired(error, navigate);
+            AuthService.ifRefreshTokenExpired(error, navigate);
         })
     }
 

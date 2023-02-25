@@ -40,14 +40,14 @@ const CreateClientComponent = () => {
                 navigate('/clients');
             }).catch(error => {
                 console.log(error);
-                AuthService.refreshTokenIfExpired(error, navigate);
+                AuthService.ifRefreshTokenExpired(error, navigate);
             })
         }else{
             ClientService.createClient(firstName, lastName, phoneNumber, email, ownerId).then(() => {
                 navigate('/clients');
             }).catch(error =>{
                 console.log(error);
-                AuthService.refreshTokenIfExpired(error, navigate);
+                AuthService.ifRefreshTokenExpired(error, navigate);
             });
         }
     }
@@ -62,7 +62,7 @@ const CreateClientComponent = () => {
                 formik.setFieldValue('ordersIds', res.data.ordersIds);
             }).catch(error =>{
                 console.log(error);
-                AuthService.refreshTokenIfExpired(error, navigate);
+                AuthService.ifRefreshTokenExpired(error, navigate);
             })
         }
     }, [])

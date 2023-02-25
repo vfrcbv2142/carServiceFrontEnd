@@ -22,7 +22,7 @@ const ListAccountComponent = () => {
             }
         }).catch((error) => {
             console.log(error);
-            AuthService.refreshTokenIfExpired(error, navigate);
+            AuthService.ifRefreshTokenExpired(error, navigate);
         })
     }
 
@@ -31,7 +31,7 @@ const ListAccountComponent = () => {
             getAllAccounts();
         }).catch((error) => {
             console.log(error);
-            AuthService.refreshTokenIfExpired(error, navigate);
+            AuthService.ifRefreshTokenExpired(error, navigate);
         })
     }
 

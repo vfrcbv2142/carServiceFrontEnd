@@ -43,14 +43,14 @@ const CreateEmployeeComponent = () => {
                 navigate('/employees');
             }).catch(error => {
                 console.log(error);
-                AuthService.refreshTokenIfExpired(error, navigate);
+                AuthService.ifRefreshTokenExpired(error, navigate);
             })
         }else{
             EmployeeService.createEmployee(firstName, lastName, phoneNumber, email, position, ownerId).then(() => {
                 navigate('/employees');
             }).catch(error =>{
                 console.log(error);
-                AuthService.refreshTokenIfExpired(error, navigate);
+                AuthService.ifRefreshTokenExpired(error, navigate);
             });
         }
     }
@@ -66,7 +66,7 @@ const CreateEmployeeComponent = () => {
                 formik.setFieldValue('ordersIds', res.data.ordersIds);
             }).catch(error =>{
                 console.log(error);
-                AuthService.refreshTokenIfExpired(error, navigate);
+                AuthService.ifRefreshTokenExpired(error, navigate);
             })
         }
     }, [])

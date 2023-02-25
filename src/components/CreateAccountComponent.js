@@ -20,14 +20,14 @@ const CreateAccountComponent = () => {
                 navigate('/accounts')
             }).catch(error => {
                 console.log(error);
-                AuthService.refreshTokenIfExpired(error, navigate);
+                AuthService.ifRefreshTokenExpired(error, navigate);
             })
         }else{
             AccountService.createAccount(login, email, password).then(() => {
                 navigate('/accounts')
             }).catch(error =>{
                 console.log(error);
-                AuthService.refreshTokenIfExpired(error, navigate);
+                AuthService.ifRefreshTokenExpired(error, navigate);
             });
         }
     }
@@ -39,7 +39,7 @@ const CreateAccountComponent = () => {
                 setEmail(res.data.email)
             }).catch((error) => {
                 console.log(error);
-                AuthService.refreshTokenIfExpired(error, navigate);
+                AuthService.ifRefreshTokenExpired(error, navigate);
             })
         } else {
             

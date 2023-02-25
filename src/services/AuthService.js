@@ -21,7 +21,7 @@ const signUp = (login, email, password) => {
     return ApiService.post("/auth/signup", { login, email, password });
 }
 
-const refreshTokenIfExpired = (error, navigate) => {
+const ifRefreshTokenExpired = (error, navigate) => {
     if (error.response && error.response.status === 403) {
         EventBus.dispatch("logout");
         navigate('/sign-in');
@@ -33,7 +33,7 @@ const AuthService = {
     signUp,
     logOut,
     signIn,
-    refreshTokenIfExpired
+    ifRefreshTokenExpired
 }
 
 export default AuthService
