@@ -42,37 +42,39 @@ const ListEmployeeComponent = () => {
         <div className='container'>
             <h2 className='text-center'>Employees List</h2>
             <Link to='/add-employee' className='btn btn-primary mb-2'> Add Employee</Link>
-            <table className='table table-striped table-bordered'>
-                <thead>
-                    <tr>
-                        <th className='col-2'>First Name</th>
-                        <th className='col-2'>Last Name</th>
-                        <th className='col-2'>Phone Number</th>
-                        <th className='col-2'>Email</th>
-                        <th className='col-2'>Position</th>
-                        <th className='col-2'>Actions</th>
-                    </tr>
-                </thead>
+            <div className='table-responsive'>
+                <table className='table table-sm table-striped table-bordered'>
+                    <thead>
+                        <tr>
+                            <th className='col-2'>First Name</th>
+                            <th className='col-2'>Last Name</th>
+                            <th className='col-2'>Phone Number</th>
+                            <th className='col-2'>Email</th>
+                            <th className='col-2'>Position</th>
+                            <th className='col-2'>Actions</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    {
-                        employees.map(
-                            employee =>
-                            <tr key= {employee.id}>
-                                <td>{employee.firstName}</td>
-                                <td>{employee.lastName}</td>
-                                <td>{employee.phoneNumber}</td>
-                                <td>{employee.email}</td>
-                                <td>{employee.position}</td>
-                                <td>
-                                    <Link className='btn btn-info' to={'/edit-employee/' + employee.id}> Update </Link>
-                                    <button className='btn btn-danger ml-2' onClick={() => deleteEmployee(employee.id)}> Delete </button>
-                                </td>
-                            </tr>
-                        )
-                    }
-                </tbody>
-            </table>
+                    <tbody>
+                        {
+                            employees.map(
+                                employee =>
+                                <tr key= {employee.id}>
+                                    <td>{employee.firstName}</td>
+                                    <td>{employee.lastName}</td>
+                                    <td>{employee.phoneNumber}</td>
+                                    <td>{employee.email}</td>
+                                    <td>{employee.position}</td>
+                                    <td>
+                                        <Link className='btn btn-info mr-2' to={'/edit-employee/' + employee.id}> Update </Link>
+                                        <button className='btn btn-danger' onClick={() => deleteEmployee(employee.id)}> Delete </button>
+                                    </td>
+                                </tr>
+                            )
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };

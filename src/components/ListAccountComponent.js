@@ -39,33 +39,35 @@ const ListAccountComponent = () => {
         <div className='container'>
             <h2 className='text-center'>Accounts List</h2>
             <Link to='/add-account' className='btn btn-primary mb-2'> Create Account</Link>
-            <table className='table table-striped table-bordered'>
-                <thead>
-                    <tr>
-                        <th className='col-1'>Account Id</th>
-                        <th className='col-3'>Account Login</th>
-                        <th className='col-4'>Account Email</th>
-                        <th className='col-2'>Actions</th>
-                    </tr>
-                </thead>
+            <div className='table-responsive'>
+                <table className='table table-sm table-striped table-bordered'>
+                    <thead>
+                        <tr>
+                            <th className='col-1'>Account Id</th>
+                            <th className='col-3'>Account Login</th>
+                            <th className='col-4'>Account Email</th>
+                            <th className='col-2'>Actions</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
-                    {
-                        accounts.map(
-                            account =>
-                            <tr key= {account.id}>
-                                <td>{account.id}</td>
-                                <td>{account.login}</td>
-                                <td>{account.email}</td>
-                                <td>
-                                    <Link className='btn btn-info' to={'/edit-account/' + account.id}> Update </Link>
-                                    <button className='btn btn-danger ml-2' onClick={() => deleteAccount(account.id)}> Delete </button>
-                                </td>
-                            </tr>
-                        )
-                    }
-                </tbody>
-            </table>
+                    <tbody>
+                        {
+                            accounts.map(
+                                account =>
+                                <tr key= {account.id}>
+                                    <td>{account.id}</td>
+                                    <td>{account.login}</td>
+                                    <td>{account.email}</td>
+                                    <td>
+                                        <Link className='btn btn-info mr-2' to={'/edit-account/' + account.id}> Update </Link>
+                                        <button className='btn btn-danger' onClick={() => deleteAccount(account.id)}> Delete </button>
+                                    </td>
+                                </tr>
+                            )
+                        }
+                    </tbody>
+                </table>
+            </div>
         </div>
     );
 };
