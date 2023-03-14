@@ -83,11 +83,11 @@ const PriceComponent = () => {
       const buttons = () => {
         if(isUpdate){
             return <div>
-                        <button className='btn btn-success' type="submit" onClick={(e) => createOrUpdatePrice(e)}> Submit </button>
-                        <button className='btn btn-danger ml-2' onClick={() => setIsUpdate(false)}> Cancel </button>
+                        <button className='btn btn-success mr-2' type="submit" onClick={(e) => createOrUpdatePrice(e)}> Submit </button>
+                        <button className='btn btn-danger' type="button" onClick={() => setIsUpdate(false)}> Cancel </button>
                     </div>
         } else {
-            return <button className='btn btn-info' onClick={() => setIsUpdate(true)}> Change prices </button>
+            return <button className='btn btn-info' type='button' onClick={() => setIsUpdate(true)}> Update prices </button>
         }
       }
 
@@ -100,7 +100,7 @@ const PriceComponent = () => {
     return (
         <div>
         <br /><br />
-        <div className='container'>
+        <div>
             <div className='row'>
                 <div className='card col-md-6 offset-md-3 offset-md-3'>
                 <h2 className='text-center'> Price List </h2>
@@ -119,7 +119,7 @@ const PriceComponent = () => {
                                                 placeholder='Enter painting price' 
                                                 name='painting' 
                                                 className='form-control'
-                                                readOnly={!isUpdate}
+                                                disabled={!isUpdate}
                                                 value={formik.values.painting}
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
@@ -141,7 +141,7 @@ const PriceComponent = () => {
                                                 placeholder='Enter preparing aluminum price' 
                                                 name='preparingAluminum' 
                                                 className='form-control'
-                                                readOnly={!isUpdate}
+                                                disabled={!isUpdate}
                                                 value={formik.values.preparingAluminum}
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
@@ -163,7 +163,7 @@ const PriceComponent = () => {
                                                 placeholder='Enter preparing plastic price' 
                                                 name='preparingPlastic' 
                                                 className='form-control'
-                                                readOnly={!isUpdate}
+                                                disabled={!isUpdate}
                                                 value={formik.values.preparingPlastic}
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
@@ -185,7 +185,7 @@ const PriceComponent = () => {
                                             placeholder='Enter preparing iron price' 
                                             name='preparingIron' 
                                             className='form-control'
-                                            readOnly={!isUpdate}
+                                            disabled={!isUpdate}
                                             value={formik.values.preparingIron}
                                             onChange={formik.handleChange}
                                             onBlur={formik.handleBlur}
@@ -207,7 +207,7 @@ const PriceComponent = () => {
                                                 placeholder='Enter Soldering price' 
                                                 name='soldering' 
                                                 className='form-control'
-                                                readOnly={!isUpdate}
+                                                disabled={!isUpdate}
                                                 value={formik.values.soldering}
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
@@ -218,7 +218,7 @@ const PriceComponent = () => {
                                         </td>
                                         <td>
                                             <br/><br/>
-                                            /m
+                                            /hour
                                         </td>
                                     </tr>
                                     <tr>
@@ -229,7 +229,7 @@ const PriceComponent = () => {
                                                 placeholder='Enter Disassembling price' 
                                                 name='disassembling' 
                                                 className='form-control'
-                                                readOnly={!isUpdate}
+                                                disabled={!isUpdate}
                                                 value={formik.values.disassembling}
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
@@ -240,7 +240,7 @@ const PriceComponent = () => {
                                         </td>
                                         <td>
                                             <br/><br/>
-                                            per hour
+                                            /hour
                                         </td>
                                     </tr>
                                     <tr>
@@ -251,18 +251,18 @@ const PriceComponent = () => {
                                                 placeholder='Enter Straightening price' 
                                                 name='straightening' 
                                                 className='form-control'
-                                                readOnly={!isUpdate}
+                                                disabled={!isUpdate}
                                                 value={formik.values.straightening}
                                                 onChange={formik.handleChange}
                                                 onBlur={formik.handleBlur}
                                             />
-                                            {formik.touched.straightening && formik.errors.soldstraighteningering ? (
+                                            {formik.touched.straightening && formik.errors.straightening ? (
                                                 <div className="alert alert-danger" >{formik.errors.straightening}</div>
                                             ) : null}
                                         </td>
                                         <td>
                                             <br/><br/>
-                                            per hour
+                                            /hour
                                         </td>
                                     </tr>
                                     </tbody>

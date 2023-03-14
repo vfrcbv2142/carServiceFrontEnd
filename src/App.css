@@ -25,7 +25,12 @@
 
 label {
   display: block;
-  margin-top: 10px;
+  /* margin-top: 10px; */
+}
+
+.checkbox {
+  padding: 0px;
+  margin: 0px;
 }
 
 .card-container.card {

@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import AuthService from "../services/AuthService";
@@ -7,6 +7,7 @@ import AuthService from "../services/AuthService";
 
 const SignInComponent = () => {
     
+    const location = useLocation();
     const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
     const navigate = useNavigate();
@@ -101,6 +102,13 @@ const SignInComponent = () => {
               <div className="form-group">
                 <div className="alert alert-danger" role="alert">
                   {formik.values.message}
+                </div>
+              </div>
+            )}
+            {location.state && (
+              <div className="form-group">
+                <div className="alert alert-success" role="alert">
+                  {location.state.successfulMessage}
                 </div>
               </div>
             )}

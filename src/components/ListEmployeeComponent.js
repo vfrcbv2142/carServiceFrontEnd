@@ -39,7 +39,7 @@ const ListEmployeeComponent = () => {
     }
 
     return (
-        <div className='container'>
+        <div>
             <h2 className='text-center'>Employees List</h2>
             <Link to='/add-employee' className='btn btn-primary mb-2'> Add Employee</Link>
             <div className='table-responsive'>

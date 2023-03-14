@@ -4,8 +4,8 @@ const getAllItemsByOrderId = (id) => {
     return ApiService.get('/items?orderId=' + id);
 }
 
-const createItem = (name, itemPrice) => { 
-    return ApiService.post('/items', {name, itemPrice});
+const createItem = (name, orderId, itemPrice) => { 
+    return ApiService.post('/items', {name, orderId, itemPrice});
 }
 
 const updateItem = (id, name, itemPrice) => { 

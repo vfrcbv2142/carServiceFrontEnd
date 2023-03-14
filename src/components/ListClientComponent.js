@@ -39,7 +39,7 @@ const ListClientComponent = () => {
     }
 
     return (
-        <div className='container'>
+        <div>
             <h2 className='text-center'>Clients List</h2>
             <Link to='/add-client' className='btn btn-primary mb-2'> Add Client</Link>
             <div className='table-responsive'>

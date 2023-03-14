@@ -82,7 +82,6 @@ const CreateEmployeeComponent = () => {
     return (
         <div>
         <br /><br />
-        <div className='container'>
             <div className='row'>
                 <div className='card col-md-6 offset-md-3 offset-md-3'>
                     {
@@ -167,7 +166,6 @@ const CreateEmployeeComponent = () => {
                 </div>
             </div>
         </div>
-    </div>
     );
 };
 

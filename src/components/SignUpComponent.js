@@ -28,7 +28,7 @@ const SignUpComponent = () => {
 
     const registerAccount = (login, email, password) => {
             AuthService.signUp(login, email, password).then(() => {
-                navigate("/");
+                navigate("/sign-in", {state: {successfulMessage:  'Account registered successfully. Please, sign in.'}});
             }).catch(error => {
                 const resMessage =
                     (error.response &&

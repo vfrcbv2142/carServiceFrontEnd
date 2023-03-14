@@ -23,7 +23,7 @@ const CreateOrderComponent = () => {
         initialValues: {
           name: '',
           orderClient: {},
-          employees: []
+          orderEmployees: []
         },
         validationSchema: Yup.object({
             name: Yup.string().required('Required').max(255, 'Too many leters'),
@@ -37,12 +37,13 @@ const CreateOrderComponent = () => {
             let currentDate = new Date();
             let formatedDate = currentDate.getFullYear()+"-"
                 +((currentDate.getMonth()+1) < 10 ? ('0'+(currentDate.getMonth()+1)) : (currentDate.getMonth()+1))
-                +'-'+currentDate.getDate()+'T'
+                +'-'+((currentDate.getDate()+1) < 10 ? ('0'+(currentDate.getDate()+1)) : (currentDate.getDate()+1))+'T'
                 +(currentDate.getHours() < 10 ? ('0'+currentDate.getHours()) : currentDate.getHours())
-                +':'+currentDate.getMinutes()+':'+currentDate.getSeconds()+'.000000';
+                +':'+(currentDate.getMinutes() < 10 ? ('0'+currentDate.getMinutes()) : currentDate.getMinutes())
+                +':'+(currentDate.getSeconds() < 10 ? ('0'+currentDate.getSeconds()) : currentDate.getSeconds())
+                +'.00';
 
-            let employeesIds = [];
-            values.employees.forEach(employee => employeesIds.push(employee.value));
+            const employeesIds = values.orderEmployees.map(employee => employee.value);
 
             createOrder(values.name, values.orderClient.value, employeesIds, formatedDate, ownerId);
         },
@@ -50,8 +51,8 @@ const CreateOrderComponent = () => {
 
 
     const createOrder = (name, clientId, employeesIds, creationDate, ownerId) => {
-        OrderService.createOrder(name, ownerId, clientId, creationDate, employeesIds, [], []).then(() => {
-            navigate('/orders');
+        OrderService.createOrder(name, ownerId, clientId, creationDate, employeesIds, [], []).then((res) => {
+            navigate('/orders/' + res.data.id);
         }).catch(error =>{
             console.log(error);
             AuthService.ifRefreshTokenExpired(error, navigate);
@@ -97,7 +98,6 @@ const CreateOrderComponent = () => {
     return (
         <div>
         <br /><br />
-        <div className='container'>
             <div className='row'>
                 <div className='card col-md-6 offset-md-3 offset-md-3'>
                 <h2 className='text-center'> Add Order </h2>
@@ -140,7 +140,7 @@ const CreateOrderComponent = () => {
                                     isMulti
                                     name="employees"
                                     className="basic-multi-select"
-                                    onChange={(e) => formik.setFieldValue('employees', e)}
+                                    onChange={(e) => formik.setFieldValue('orderEmployees', e)}
                                     options={employeesOptions()}
                                     defaultValue={formik.values.employees}
                                 />
@@ -153,7 +153,6 @@ const CreateOrderComponent = () => {
                 </div>
             </div>
         </div>
-    </div>
     );
 };
 

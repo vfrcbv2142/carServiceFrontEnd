@@ -14,7 +14,7 @@ import ListClientComponent from './components/ListClientComponent';
 import CreateClientComponent from './components/CreateClientComponent';
 import ListEmployeeComponent from './components/ListEmployeeComponent';
 import CreateEmployeeComponent from './components/CreateEmployeeComponent';
-import OrderComponent from './components/OrderComponent';
+import UpdateViewOrderComponent from './components/UpdateViewOrderComponent';
 import ListOrderComponent from './components/ListOrderComponent';
 import CreateOrderComponent from './components/CreateOrderComponent';
 import PriceComponent from './components/PriceComponent';
@@ -60,9 +60,9 @@ function App() {
               <Route path="/prices" element={<PriceComponent/>} />
               <Route path="/edit-price/:id" element={<PriceComponent/>} />
               <Route path="/orders" element={<ListOrderComponent/>} />
-              <Route path="/orders/:id" element={<OrderComponent/>} />
+              <Route path="/orders/:id" element={<UpdateViewOrderComponent/>} />
               <Route path="/add-order" element={<CreateOrderComponent/>} />
-              <Route path="/edit-order/:id" element={<CreateOrderComponent/>} />
+              <Route path="/edit-order/:id" element={<UpdateViewOrderComponent/>} />
             </Routes>
           </div>
           <FooterComponent/>

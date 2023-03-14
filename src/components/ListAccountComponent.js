@@ -36,7 +36,7 @@ const ListAccountComponent = () => {
     }
 
     return (
-        <div className='container'>
+        <div>
             <h2 className='text-center'>Accounts List</h2>
             <Link to='/add-account' className='btn btn-primary mb-2'> Create Account</Link>
             <div className='table-responsive'>

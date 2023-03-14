@@ -2,7 +2,7 @@ import axios from "axios";
 import TokenService from "./TokenService";
 
 const instance = axios.create({
-  baseURL: "http://localhost:8080/api/v1",
+  baseURL: "http://ec2-44-200-5-115.compute-1.amazonaws.com:8080/api/v1",
   headers: {
     "Content-Type": "application/json",
   },
